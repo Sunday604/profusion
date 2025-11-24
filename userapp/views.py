@@ -98,3 +98,12 @@ def profile_edit(request):
         return redirect('profile_view')
     
     return render(request, 'profile_edit.html', {'profile': profile})
+
+@login_required(login_url='/user/login/')
+def delete_account(request):
+    if request.method == 'POST':
+        user = request.user
+        user.delete()
+        messages.success(request, 'Account deleted.')
+        return redirect('home')
+    return render(request, 'confirm_delete.html')

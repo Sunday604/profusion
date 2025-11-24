@@ -5,6 +5,7 @@
   {% if user.is_authenticated %}
     <h1>Edit Profile</h1>
     
+    
     <form method="post" enctype="multipart/form-data" class="mt-4">
       {% csrf_token %}
       
@@ -28,6 +29,9 @@
 
       <button type="submit" class="btn btn-success">Save Changes</button>
       <a href="{% url 'profile_view' %}" class="btn btn-secondary">Cancel</a>
+      <button type="reset" class="btn btn-warning">Reset</button>
+      <a href="{% url 'delete_account' %}" class="btn btn-danger float-end">Delete Account</a>
+      <button type="button" onclick="window.location.href='/'" class="btn btn-info">Back to Home</button>
     </form>
   {% else %}
     <p>Please <a href="{% url 'account_login' %}">log in</a> to edit your profile.</p>

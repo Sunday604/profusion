@@ -21,6 +21,7 @@
         <p><strong>Bio:</strong> {{ profile.bio|default:"No bio added yet" }}</p>
         
         <a href="{% url 'profile_edit' %}" class="btn btn-primary">Edit Profile</a>
+        <button type="button" onclick="window.location.href='/'" class="btn btn-info">Back to Home</button>
       </div>
     </div>
   {% else %}
